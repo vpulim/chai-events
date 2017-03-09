@@ -1,6 +1,6 @@
 {
   "name": "chai-events",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Make assertions about event emitters",
   "main": "chai-events.js",
   "directories": {
