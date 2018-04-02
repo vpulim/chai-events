@@ -56,7 +56,6 @@ function plugin(chai, utils) {
     var assert = function() {
       _this.assert.apply(_this, arguments);
     }
-    var timeout = utils.flag(this, 'timeout') || 1500;
 
     if(utils.flag(this, 'negate')) {
       // Ensure that the event doesn't fire before timeout
@@ -68,11 +67,6 @@ function plugin(chai, utils) {
           assert(false, "expected #{this} to not emit "+name+".");
           resolve();
         });
-        setTimeout(function() {
-          if(done) { return; }
-          done = true;
-          resolve();
-        }, timeout);
       });
     }
     else {
@@ -84,12 +78,6 @@ function plugin(chai, utils) {
           done = true;
           resolve();
         });
-        setTimeout(function() {
-          if(done) { return; }
-          done = true;
-          assert(false, "expected #{this} to emit "+name+".");
-          resolve();
-        }, timeout);
       });
     }
   });
